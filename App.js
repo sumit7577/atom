@@ -1,21 +1,50 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import AppLoading from 'expo-app-loading';
+import * as Font from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+import AppHome from './screens';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+export default class App extends React.Component {
+  state = {
+    isLoadingComplete: false,
+    fontLoaded: false
+  };
+
+  render() {
+    if (!this.state.isLoadingComplete) {
+      return (
+        <AppLoading
+          startAsync={this._loadResourcesAsync}
+          onError={this._handleLoadingError}
+          onFinish={this._handleFinishLoading}
+        />
+      );
+    } else {
+      return (
+        <AppHome />
+      );
+    }
+  }
+
+  _loadResourcesAsync = async () => {
+    await SplashScreen.preventAutoHideAsync();
+    await Font.loadAsync({
+      'montserrat-regular': require('./assets/font/Montserrat-Regular.ttf'),
+      'montserrat-bold': require('./assets/font/Montserrat-Bold.ttf')
+    });
+
+    this.setState({ fontLoaded: true });
+  };
+
+  _handleLoadingError = error => {
+    console.warn(error);
+  };
+
+  _handleFinishLoading = async () => {
+    if (this.state.fontLoaded) {
+      await SplashScreen.hideAsync();
+      this.setState({ isLoadingComplete: true });
+    }
+  };
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

@@ -7,5 +7,12 @@
       "**/*"
     ]
   },
-  "name": "Atom"
+  "name": "Atom",
+  "orientation": "portrait",
+    "icon": "./assets/mainlogo.png",
+    "splash": {
+      "image": "./assets/gificon.gif",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    }
 }
