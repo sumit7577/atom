@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Atom",
+    "slug": "Atom",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "Atom"
+}
