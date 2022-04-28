@@ -5,14 +5,13 @@
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
-    ]
-  },
-  "name": "Atom",
-  "orientation": "portrait",
+    ],
+    "orientation": "portrait",
     "icon": "./assets/mainlogo.png",
     "splash": {
-      "image": "./assets/gificon.gif",
-      "resizeMode": "cover",
+      "image": "./assets/mainlogo.png",
+      "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     }
+  }
 }
