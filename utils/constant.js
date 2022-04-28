@@ -1,4 +1,5 @@
 const Logo = require("../assets/mainlogo.png");
+const Bike = require("../assets/bike.png");
 
 const FONTFAMILY ={
     REGULAR:"montserrat-regular",
@@ -59,4 +60,4 @@ const SIZES = {
   OPACITY: 0.8
 };
 
-export{Logo,FONTFAMILY,SIZES,COLORS};
+export{Logo,FONTFAMILY,SIZES,COLORS,Bike};

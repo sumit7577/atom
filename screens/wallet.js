@@ -1,19 +1,20 @@
-import { View, Text, StyleSheet, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, Image } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Button } from "../components";
 import { Block, Icon, Input } from 'galio-framework';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { FONTFAMILY, COLORS } from '../utils/constant';
+import { Bike } from '../utils/constant';
 
 export default function Wallet(props) {
     return (
         <SafeAreaView>
             <Block style={styles.container}>
-            
+
                 <Block style={styles.header}>
                     <AntDesign name="arrowleft" size={22} color="black" style={{ marginLeft: 4, position: "absolute", left: 10 }} onPress={() => {
-                        navigation.pop();
+                        props.props.navigate("My Wallet");
                     }} />
                     <Text style={styles.text}> Yulu Money</Text>
                 </Block>
@@ -78,8 +79,17 @@ export default function Wallet(props) {
 
                     </Block>
 
-                    <Block style={{ flex: 2 }}>
-
+                    <Block style={{ flex: 2 }} space="evenly">
+                        <Text style={{fontFamily:FONTFAMILY.BOLD,fontSize:13}}> Wait! Why pay more?</Text>
+                        <Text style={{fontFamily:FONTFAMILY.BOLD,fontSize:10,color:COLORS.DEFAULT}}> Get extra rides with every saver pack</Text>
+                        <Block row middle space='between' style={{backgroundColor:COLORS.THEME,borderRadius:4,paddingLeft:12}}>
+                            <Block>
+                                <Text style={styles.text}>Starting from $150</Text>
+                                <Text style={styles.text}>Switch to Saver Packs</Text>
+                                <Text style={styles.text}>Know More</Text>
+                            </Block>
+                            <Image source={Bike} style={{ resizeMode: "contain", height: 120, width: "90%" }} />
+                        </Block>
 
                     </Block>
 
