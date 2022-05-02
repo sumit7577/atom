@@ -7,6 +7,7 @@ import { Logo, FONTFAMILY } from '../utils/constant';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Wallet from '../screens/wallet';
+import Profile from '../screens/profile';
 
 
 function CustomIcons(props) {
@@ -44,6 +45,12 @@ function WalletScreen({ navigation }) {
     return (
         <Wallet props={navigation}/>
     );
+}
+
+function ProfileScreen({navigation}){
+    return(
+        <Profile props={navigation} />
+    )
 }
 
 
@@ -122,7 +129,7 @@ export default function AppStack() {
                 <Drawer.Screen name="Support" component={WalletScreen} options={{
                     headerShown: false
                 }} />
-                <Drawer.Screen name="Profile" component={WalletScreen} options={{
+                <Drawer.Screen name="Profile" component={ProfileScreen} options={{
                     headerShown: false
                 }} />
             </Drawer.Navigator>
